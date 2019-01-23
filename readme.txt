@@ -4,4 +4,7 @@ New
 Git has a mutable index called stage.
 a
 b
-
+c
+d
+a1
+a2
