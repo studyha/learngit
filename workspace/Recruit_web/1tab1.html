@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+<head>
+<script type="application/javascript" src="layui/lay/modules/jquery.js"></script>
+<link rel="stylesheet" href="layui/css/layui.css">
+<script type="application/javascript" src="layui/layui.all.js"></script>
+</head>
+<body>
+<div class="layui-main" style="margin-bottom: 30px;margin-top: 20px"></div>
+<div class="layui-tab">
+    <ul class="layui-tab-title">
+      <li class="layui-this">网站设置</li>
+      <li>用户管理</li>
+      <li>权限分配</li>
+      <li>商品管理</li>
+      <li>订单管理</li>
+    </ul>
+    <div class="layui-tab-content">
+      <div class="layui-tab-item layui-show">内容1
+        <blockquote class="layui-elem-quote">如果需要对Tab进行外部新增、删除、切换等操作，请移步到“内置组件-常用元素操作”页面中查阅：基础方法</blockquote>
+      </div>
+      <div class="layui-tab-item">内容2</div>
+      <div class="layui-tab-item">内容3</div>
+      <div class="layui-tab-item">内容4</div>
+      <div class="layui-tab-item">内容5</div>
+    </div>
+
+</div>
+   
+  <script>
+  //注意：选项卡 依赖 element 模块，否则无法进行功能性操作
+  layui.use('element', function(){
+    var element = layui.element();
+  });
+  </script>
+  </body>
+  </head>
+  </html>

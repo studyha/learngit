@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"><!--字符集的设置-->
+<title>SCT-后台系统</title>
+<link href="style/authority/login_css.css" rel="stylesheet" type="text/css" /><!--链接外部样式表，链接css文件-->
+<script type="text/javascript" src="scripts/jquery/jquery-1.7.1.js"></script><!---type指示指示脚本的 MIME 类型 src规定外部脚本文件的 URL 外部和内部的文件，调用js文件-->
+
+<script type="text/javascript">
+	$(document).ready/*页面加载之后才可以执行函数*/
+	(
+		function()
+		{			
+		$("#login_sub").click
+		(/*id为login_sub的事件函数*/
+			function()
+			{
+			$("#submitForm").attr("action", "index.html").submit();
+			/*提交之后就会跳转到index文件中*/
+			}
+		);
+		}
+	);
+	
+	/*回车事件*/
+	
+	function EnterPress(e){ //传入 event 
+		var e = e || window.event; 
+		if(e.keyCode == 13){ /*e=13表示换行*/
+			$("#submitForm").attr("action", "index.html").submit();
+			/*当从键盘上输入回车时就会跳转到index界面*/
+			/*设置或返回被选元素的属性值*/
+		} 
+	} 
+</script>
+</head>
+<body>
+	<!--id是css文件中的格式-->
+	<div id="login_center">
+		<div id="login_area">
+			<div id="login_box">
+				<div id="login_form">
+					<div id="login_inner">
+					<form id="submitForm" action="" method="post"><!--get是用来从服务器上获得数据,post是用来向服务器上传递数据-->
+						<div id="login_tip">
+							<span id="login_err" class="sty_txt2"></span>
+						</div>
+						<div>
+							 用户名：<input type="text" name="userEntity.userCode" class="username" id="name">
+						</div>
+						<div>
+							密&nbsp;&nbsp;&nbsp;&nbsp;码：<input type="password" name="userEntity.password" class="pwd" id="pwd" onkeypress="EnterPress(event)" onkeydown="EnterPress()">
+							<!---&nbsp表示空格-->
+						</div>
+						
+						<div id="btn_area">
+							<input type="button" class="login_btn" id="login_sub"  value="登  录">
+							<input type="reset" class="login_btn" id="login_ret" value="重 置">
+							<br></br>
+							<div>
+								<div>
+									<a href="index.html" class="login_link">注册</a>
+								</div>	
+							</div>
+						</div>
+						
+						
+					</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

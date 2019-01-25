@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>办公用品 - 河北方胜</title>
+    <link href="https://cdn.jsdelivr.net/npm/layui-src@2.4.5/dist/css/layui.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fescostatic/src/SSMS/css/admin.min.css" media="all">
+    <script src="https://cdn.jsdelivr.net/npm/layui-src@2.4.5/dist/layui.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/moment.js"></script>
+
+</head>
+<body>
+    <div class="layui-fluid">
+        
+
+<div class="layui-row layui-col-space15">
+    <div class="layui-col-md12">
+        <div class="layui-card">
+            <div class="layui-card-body">
+                <div style="margin-bottom: 10px;">
+                    名称：
+                    <div class="layui-inline">
+                        <input class="layui-input" name="GoodsName" id="GoodsName" autocomplete="off">
+                    </div>
+                    <button class="layui-btn" data-type="search">搜索</button>
+                        <button class="layui-btn" data-type="new">新建</button>
+                        <button class="layui-btn layui-btn-sm">
+                            <i class="layui-icon">&#xe640;</i>
+                            <i class="layui-icon">&#xe640;</i>                    
+                </div>
+
+                <table class="layui-hide" id="datatable" lay-filter="datatable"></table>
+                <script type="text/html" id="table-operate-bar">
+                    {{#  if(d.roleID==1){ }}
+                    <!--员工客服权限待调整-->
+                    <a class="layui-btn layui-btn-xs" lay-event="add">入库</a>
+                    <a class="layui-btn layui-btn-xs" lay-event="out">领用</a>
+                    <a class="layui-btn layui-btn-xs" lay-event="detail">详情</a>
+                    {{#  } }}
+                </script>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    layui.use
+  layui.use(['table'], function(){
+    var  table = layui.table
+        , $ = layui.jquery
+          ;
+      var layer = layui.layer;
+      var active = {
+          search: function () {
+              table.reload('datatable', {
+                  method:'POST'
+                  ,page: { curr: 1 }
+                  , where: {
+                      GoodsName: $("#GoodsName").val()
+                  }
+              });
+          },
+          new: function () {
+              layer.open({
+                  type: 2,
+                  area: ['700px', '490px'],
+                  content: '/Supplies/Goods/FormNewGoods',
+                  end: function (index, layero) {
+                      table.reload("test-table-resetPage");
+
+                      //return false;
+                  }
+              });
+
+          }
+      };
+
+      $('.layui-btn').on('click', function () {
+          var type = $(this).data('type');
+          active[type] ? active[type].call(this) : '';
+      });
+
+    table.render({
+        elem: '#datatable'
+        , url: "/Supplies/Goods/List"
+        ,method:'post'
+        , where: {type:0}
+        , height: 'full-120'
+        , method: 'post'
+        , limit:10
+      ,page: { //支持传入 laypage 组件的所有参数（某些参数除外，如：jump/elem） - 详见文档
+        layout: [ 'count', 'prev', 'page', 'next', 'skip'] //自定义分页布局
+        //,curr: 5 //设定初始在第 5 页
+        ,groups: 1 //只显示 1 个连续页码
+        ,first: false //不显示首页
+        ,last: false //不显示尾页
+
+        }
+      ,cols: [[
+          { field:'GoodsName', title: '名称'}
+          , { field: 'BrandName', title: '品牌'}
+          , { field: 'ClassName', title: '大类' }
+          , { field: 'SubclassName', title: '小类' }
+          , { field: 'WarehouseName', title: '仓库' }
+          , { field: 'WarehouseRemarks', title: '仓库备注' }
+          , { field: 'Amount', title: '数量' }
+          , { field: 'UnitName', title: '单位' }
+          , { title: "操作", align: 'center', fixed: 'right', toolbar: '#table-operate-bar' }
+
+
+      ]]
+      });
+      //监听工具条
+      table.on('tool(datatable)', function (obj) {
+          var data = obj.data;
+          //console.log(data);
+          if (obj.event == 'add') {
+              top.layer.open({
+                  type: 2,
+                  area: ['700px', '450px'],
+                  content: '/Supplies/Goods/FormBalanceAdd?GoodsGuid=' + data.GoodsGuid,
+                  end: function (index, layero) {
+                      table.reload("datatable");
+                  }
+              });
+          }
+          if (obj.event === 'out') {
+              top.layer.open({
+                  type: 2,
+                  area: ['700px', '490px'],
+                  content: '/Supplies/Goods/FormBalanceOut?GoodsGuid=' + data.GoodsGuid,
+                  end: function (index, layero) {
+                      table.reload("datatable");
+
+                      //return false;
+                  }
+              });
+          }
+          if (obj.event === 'detail') {
+              top.layer.open({
+                  type: 2,
+                  area: ['80%', '90%'],
+                  content: '/Supplies/Goods/Detail?GoodsGuid=' + data.GoodsGuid,
+                  end: function (index, layero) {
+                      table.reload("datatable");
+
+                      //return false;
+                  }
+              });
+          }
+
+      });
+
+  });
+</script>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+
+#host{
+    background: blanchedalmond;
+    font-family: MicrosoftYaHei;/*设置字体*/
+}
+.xiaoyuan-index {/*设置所有分层的背景和颜色*/
+    background: #f4f6f9;
+    width: 100%;
+}
+.header-all {/*设置高度宽度背景和行高*/
+    width: 100%;
+    height: 100px;
+    background: #fff;
+    line-height: 40px;/*行高*/
+}
+.header-content {/*设置宽和高*/
+    width: 100%;
+    height: 100%;
+}
+.header-top{
+    height: 40px;
+    line-height: 40px;
+}
+
+.right-login {
+    margin-left:90%;
+    line-height: 40px;
+}
+.header-bottom {
+    box-sizing: border-box;
+    height: 60px;
+    line-height: 60px;
+}
+a {
+    text-decoration: none;
+}
+.m_auto {
+    margin: 0 auto;
+}
+.clearfix, .clearfixVisible {
+    *zoom: 1;
+}
+.reg{margin-left:10px}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+<head>
+<script type="application/javascript" src="layui/lay/modules/jquery.js"></script>
+<link rel="stylesheet" href="layui/css/layui.css">
+<script type="application/javascript" src="layui/layui.all.js"></script>
+</head>
+<body>
+<div class="layui-main" style="margin-bottom: 30px;margin-top: 20px"></div>
+<div class="layui-main" style="margin-bottom: 30px;">
+    <div class="layui-tab" lay-filter="test">
+        <ul class="layui-tab-title">
+            <li>网站设置</li>
+            <li>用户管理</li>
+            <li>权限分配</li>
+            <li>商品管理</li>
+            <li>订单管理</li>
+        </ul>
+        <div class="layui-tab-content" style=" height: 120px;width: 100%;">
+                <div class="layui-tab-item">网站设置</div>
+                <div class="layui-tab-item">用户管理</div>
+                <div class="layui-tab-item">权限分配</div>
+                <div class="layui-tab-item">商品管理</div>
+                <div class="layui-tab-item">订单管理</div>
+        </div>
+    </div>
+</div>
+</div>
+<script>
+layui.use('element',function () {
+//实例化element
+var element = layui.element();
+/*
+//初始化动态元素，一些动态生成的元素如果不设置初始化，将不会有默认的动态效果
+element.init();
+//导航条点击监听
+element.on('nav(bigData)',function (elem) {
+console.log(elem);
+});
+//tab切换监听
+element.on('tab(test)',function (data) {
+console.log(data);
+});
+//手风琴折叠面板开启关闭监听
+element.on('collapse(collapseFilter)',function (data) {
+console.log(data.show);
+console.log(data.title);
+console.log(data.content)
+});
+//触发的事件
+var active = {
+setPercent: function () {
+//设置50%进度
+element.progress('demo', '50%')
+}
+}
+//点击事件的监听
+$('.site-demo-active').on('click', function(){
+var othis = $(this);
+var type = $(this).data('type');
+active[type] ? active[type].call(this, othis) : '';
+});*/
+})
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
