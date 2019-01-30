@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+<head>
+<script type="application/javascript" src="layui/lay/modules/jquery.js"></script>
+<link rel="stylesheet" href="layui/css/layui.css">
+<link rel="stylesheet" href="layui/css/global.css">
+<script type="application/javascript" src="layui/layui.all.js"></script>
+<body>
+    
+    <div class="site-block layui-icon-align-center">    
+        <div class="layui-inline" style="width: 274px;" >
+            <input type="text" class="layui-input" id="test1" placeholder="yyyy-MM-dd" lay-key="1">
+        </div>
+        <script>
+                layui.use('laydate', function(){
+                  var laydate = layui.laydate;
+                  
+                  //执行一个laydate实例
+                  laydate.render({
+                    elem: '#test1' //指定元素
+                  });
+                  
+                  //嵌套显示
+                  laydate.render({
+                    elem: '#test2'
+                    ,position: 'static'
+                    ,change: function(value){
+                      lay('#testView').html(value);
+                    }
+                  });
+                });
+        </script>
+    </div>
+</body>
+</head>
+</html>
