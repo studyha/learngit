@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+<head>
+<script type="application/javascript" src="layui/lay/modules/jquery.js"></script>
+<link rel="stylesheet" href="layui/css/layui.css">
+<link rel="stylesheet" href="layui/css/global.css">
+<script type="application/javascript" src="layui/layui.all.js"></script>
+<!--<script src="layui/lay/modules/layer.js"></script>-->
+<body>
+    <!--
+    <a href="layer.html">
+        <button class="layui-btn">跳转</button>
+    </a>
+-->
+<!--调用layer.open中的iframe层打开新的页面-->
+<script>
+    layer.config({
+  path: '/layui/lay/modules/layer.js' //layer.js所在的目录，可以是绝对目录，也可以是相对目录
+});
+    layer.open({
+    type: 2,
+    skin: 'demo-type',
+    title:"iframe层打开的新页面",
+    //shadeClose: true,//控制点击外部遮罩关闭弹窗
+    shade: false,
+    maxmin: true, //开启最大化最小化按钮
+    
+    area: ['680px', '730px'],
+    content:"1form.html",
+    tips: [1, '#c00'],
+    //点击关闭按钮时，显示提示语句
+    cancel: function(index, layero){ 
+  if(confirm('确定要关闭么')){ //只有当点击confirm框的确定时，该层才会关闭
+    layer.close(index)
+    }
+  return false; 
+},
+    //遮罩
+    shade: [0.8, '#393D49']
+    
+});   
+
+layer.alert('只想简单的提示');  
+</script>
+
+</body>
+</head>
+</html>
+
+
+            
+       
