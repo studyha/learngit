@@ -1,0 +1,22 @@
+.login-container2{
+    padding-top: 5px;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 2px;
+    background-color: linen;
+    
+}
+.login-container1{
+    margin-top: 15px;
+    padding: 0;
+    widows: 750px;
+    position: relative;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+.login-title{
+    position: relative;
+    left: 0;
+    height: 40px;
+    white-space: nowrap;/*文本不换行*/
+}

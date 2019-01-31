@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>登录网站</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/layui-src@2.4.5/dist/css/layui.css" media="all">
+</head>
+<body>
+<script src="https://cdn.jsdelivr.net/npm/layui-src@2.4.5/dist/layui.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/layui-src@2.4.5/dist/layui.all.js"></script>
+<script src="css/login.css"></script>
+<br>
+<br>
+<br>
+<br>
+<div class="login-container1">
+  <div class="login-container2">
+    <div class="layui-tab layui-tab-brief" lay-filter="user">
+      <ul class="layui-tab-title">
+        <li class="layui-this">登录</li>
+        <li>
+          <a href="register.html">注册</a>
+        </li>
+      </ul>
+      <div class="layui-form layui-tab-content" id="LAY_ucm" style="padding:20px 0">
+          <div class="layui-tab-item layui-show">
+            <div class="layui-form layui-form-pane">
+              <form method="POST">
+                <div class="layui-form-item">
+                    <label for="L_email" class="layui-form-label">用户名</label><!--for标签规定了和哪个表单元素相关联-->
+                <div class="layui-input-inline"> 
+                    <input type="text" id="L_loginName" name="loginName" required="" lay-verify="required" autocomplete="off" class="layui-input"> 
+                  </div>
+                </div>
+                <div class="layui-form-item"> 
+                  <label for="L_pass" class="layui-form-label">密码</label> 
+                  <div class="layui-input-inline"> 
+                    <input type="password" id="L_pass" name="pass" required="" lay-verify="required" autocomplete="off" class="layui-input"> 
+                  </div> 
+                </div>
+                <div class="layui-form-item"> 
+                  
+                  <button class="layui-btn" lay-submit=""><a href="https://www.baidu.com/">立即登录</a></button> 
+                  <span style="padding-left:20px;"> 
+                    <a href="/workspace/Recruit_web/1form.html">忘记密码？</a> 
+                  </span> 
+                </div>
+              </form>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
