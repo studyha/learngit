@@ -1,17 +1,15 @@
 .login-container2{
     padding-top: 5px;
-    padding: 20px;
+    padding:10px 20px 10px 20px;
     margin-bottom: 15px;
     border-radius: 2px;
-    background-color: linen;
+    background-color: rgb(250, 249, 248);
     
 }
 .login-container1{
-    margin-top: 15px;
-    padding: 0;
-    widows: 750px;
+    
+    margin:2cm 3cm 2cm 3cm;
     position: relative;
-    margin: 0 auto;
     box-sizing: border-box;
 }
 .login-title{
@@ -19,4 +17,9 @@
     left: 0;
     height: 40px;
     white-space: nowrap;/*文本不换行*/
+}
+.login-main{
+    width: 600px;
+    margin:0 auto;
+
 }
